@@ -45,8 +45,8 @@ const ShortenForm = observer(() => {
         {shortUrl && (
           <Box mt={2}>
             <Typography variant="subtitle1">Shortened URL:</Typography>
-            <a href={`${window.location.origin}/${shortUrl}`} target="_blank" rel="noopener noreferrer">
-              {`${window.location.origin}/${shortUrl}`}
+            <a href={`${window.location.origin}/url-shortener-client/${shortUrl}`} target="_blank" rel="noopener noreferrer">
+              {`${window.location.origin}/url-shortener-client/${shortUrl}`}
             </a>
           </Box>
         )}
