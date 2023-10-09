@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ShortenForm from './components/ShortenForm';
+import RedirectURL from './components/RedirectURL';
+import LoginForm from './components/LoginForm';
+import AuthService from './services/AuthService';
+import PrivateRoute from './common/router';
+import SignUpForm from './components/SignUp';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <> 
+      <ToastContainer />
+      <Router>
+        <Switch>
+          <Route path="/login" component={LoginForm} />
+          <PrivateRoute
+            path="/shorten-url"
+            component={ShortenForm}
+            isAuthenticated={AuthService.isAuthenticated()}
+          />
+          <Route path="/:shortUrl" component={RedirectURL} />
+          <Route path="/sign_up" component={SignUpForm} />
+          <Redirect from="/" to="/login" />
+        </Switch>
+      </Router>
+    </>
+   
   );
-}
+};
 
 export default App;
