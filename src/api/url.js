@@ -28,7 +28,6 @@ export const redirectPage = async (shortUrl, token) => {
     
     return response.data.original_url;
   } catch (error) {
-    console.log("sgjksgjskgjskgjsg", error)
     throw error;
   }
 };

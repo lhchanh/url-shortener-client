@@ -1,5 +1,6 @@
 import { redirectPage, shortenUrl } from '../api/url';
 import AuthService from './AuthService';
+import { toast } from 'react-toastify';
 
 class UrlService {
   async generateShortUrl(original_url) {
@@ -16,6 +17,7 @@ class UrlService {
       const originalUrl = await redirectPage(short_url, AuthService.getAuthToken());
       return originalUrl
     } catch (error) {
+      toast.error(error);
       throw error;
     }
   }
