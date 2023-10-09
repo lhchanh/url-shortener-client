@@ -14,7 +14,7 @@ const App = () => {
   return (
     <> 
       <ToastContainer />
-      <Router basename="/url-shortener-client">
+      <Router>
         <Switch>
           <Route path="/login" component={LoginForm} />
           <PrivateRoute
