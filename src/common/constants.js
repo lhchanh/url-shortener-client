@@ -1,1 +1,1 @@
-export const BASE_URL = 'http://localhost:3001'; 
+export const BASE_URL = 'https://url-shortener-api-80050a8a3284.herokuapp.com'; 
