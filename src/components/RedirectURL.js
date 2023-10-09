@@ -16,8 +16,7 @@ const RedirectURL = observer(() => {
         const original_url = await UrlService.redirect(shortUrl)
         window.location.href = original_url;
       } catch (error) {
-        console.log("sgsgjskgjskgsjkgsjg")
-        history.push('/short-url')
+        history.push('/shorten-url')
       }
     };
     if(AuthService.isAuthenticated()){
